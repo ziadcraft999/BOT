@@ -3,7 +3,7 @@ const fs = require("fs")
 const client = new Discord.Client();
 let ar = JSON.parse(fs.readFileSync(`./Data/AutoRole.json`, `utf8`))
 
-const prefix = "";//البريفكس
+const prefix = "%";//البريفكس
 
 client.on('guildMemberAdd', member => {
   if(!ar[member.guild.id]) ar[member.guild.id] = {
@@ -15,7 +15,7 @@ member.addRole(member.guild.roles.find(`name`, ar[member.guild.id].role)).catch(
 })
 
 client.on('message', message => { 
-  var whitelisted = ""// ايديك
+  var whitelisted = "283880597095710721"// ايديك
   var sender = message.author
 
 if(!message.guild) return
@@ -79,5 +79,4 @@ client.on('ready', () => {
 
 
 
-
-client.login("");// توكن بوتك
+client.login(process.env.BOT_TOKEN);
